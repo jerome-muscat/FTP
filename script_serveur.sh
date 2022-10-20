@@ -2,8 +2,11 @@
 
 sudo apt update && sudo apt upgrade && sudo apt install proftpd-*
 
-conf=$(sudo /etc/proftpd/proftpd.conf)
-tls=$(sudo /etc/proftpd/tls.conf)
+conf=/etc/proftpd/proftpd.conf
+tls=/etc/proftpd/tls.conf
+
+sudo chmod 777 $conf
+sudo chmod 777 $tls
 
 echo "<Anonymous ~ftp>" >> $conf
 echo " User ftp" >> $conf
@@ -13,17 +16,18 @@ echo " DirFakeUser on ftp" >> $conf
 echo " DirFakeGroup on ftp" >> $conf
 echo " RequireValidShell off" >> $conf
 echo " MaxClients 10" >> $conf
-echo " <Directory *" >> $conf
-echo "  <Limit Write>" >> $conf
+echo " <Directory *>" >> $conf
+echo "  <Limit WRITE>" >> $conf
 echo "   DenyAll" >> $conf
 echo "  </Limit>" >> $conf
 echo " </Directory>" >> $conf
 echo "</Anonymous>" >> $conf
 echo "Include /etc/proftpd/tls.conf" >> $conf
 
-sudo mkdir /etc/proftpd/shell
+sudo mkdir /etc/proftpd/ssl
 
-sudo openssl req -newkey rsa:4096 -x509 -keyout /etc/proftpd/ssl/proftpd.key.pem -days 30 -nodes -out /etc/proftpd/ssl/proftpd.cert.pem 
+sudo openssl req -x509 -days 30 -subj "/C=''/ST=''/L=''/CN=''/emailAddress=''" -newkey rsa:2048 -keyout /etc/proftpd/ssl/proftpd.key.pem -out /etc/proftpd/ssl/proftpd.cert.pem 
+
 
 sudo chmod 666 /etc/proftpd/ssl/proftpd.key.pem
 sudo chmod 666 /etc/proftpd/ssl/proftpd.cert.pem
@@ -39,3 +43,5 @@ echo " TLSRequired on" >> $tls
 echo "</IfModule>" >> $tls
 
 sudo /etc/init.d/proftpd restart
+sudo chmod 644 $conf
+sudo chmod 644 $tls
