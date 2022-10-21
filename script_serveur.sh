@@ -29,7 +29,7 @@ Include /etc/proftpd/tls.conf" >> $conf
 sudo mkdir /etc/proftpd/ssl
 
 sudo openssl req -x509 -days 30 -subj "/C=''/ST=''/L=''/CN=''/emailAddress=''" -newkey rsa:2048 -keyout /etc/proftpd/ssl/proftpd.key.pem -out /etc/proftpd/ssl/proftpd.cert.pem
-
+ 
 sudo chmod 666 /etc/proftpd/ssl/proftpd.key.pem
 sudo chmod 666 /etc/proftpd/ssl/proftpd.cert.pem
 
