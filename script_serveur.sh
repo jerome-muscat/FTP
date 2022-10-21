@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update && sudo apt upgrade && sudo apt install proftpd-* 
-sudo apt install openssl && apt install openssh-server 
+sudo apt install openssl && sudo apt install openssh-server 
 
 conf=/etc/proftpd/proftpd.conf
 tls=/etc/proftpd/tls.conf
