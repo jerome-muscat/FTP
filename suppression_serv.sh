@@ -5,12 +5,12 @@ sudo rm /etc/proftpd/ssl/proftpd.cert.pem && sudo rm /etc/proftpd/ssl/proftp.key
 rm -r /home/Mery
 rm -r /home/Pippin
 
-#userdel permet de supprimer des utilisateurs
-sudo userdel Merry && sudo userdel Pippin
+#si on le souhaite, on peut supprimer des utilisateurs.
+#sudo userdel Merry && sudo userdel Pippin
 
-#apt --purge remove permet de désinstaller un ou plusieurs paquets
+#apt --purge remove permet de désinstaller un ou plusieurs paquets.
 sudo apt --purge remove proftpd-* 
 
-#si on le souhaite, on peut désinstaller les paquets openssh et openssl
+#si on le souhaite, on peut désinstaller les paquets openssh et openssl.
 #sudo apt --purge remove openssh-server
 #sudo apt --purge remove openssl
