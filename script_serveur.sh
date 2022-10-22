@@ -55,7 +55,7 @@ echo -e "<IfModule mod_tls.c>\n\
 #cette commande permet de faire redémarrer le service proftpd
 sudo /etc/init.d/proftpd restart
 
-#chmod permet ici de donnée le droit de lecture à tous les utilisateurs. Mais aussi pour le propriétaire des documents le droit d'écriture.
+#chmod permet ici de donnée le droit de lecture à tous les utilisateurs. Mais aussi, pour le propriétaire des documents, le droit d'écriture.
 sudo chmod 644 $conf
 sudo chmod 644 $tls
 
