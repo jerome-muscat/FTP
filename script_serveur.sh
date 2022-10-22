@@ -13,8 +13,7 @@ tls=/etc/proftpd/tls.conf
 sudo chmod 777 $conf
 sudo chmod 777 $tls
 
-#echo permet ici dafficher écrire un paragraphe,
-#grâce aux deux chevrons de le redériger sans écraser le fichier cité.
+#echo permet ici dafficher écrire un paragraphe, grâce aux deux chevrons de le redériger sans écraser le fichier cité.
 echo -e "<Anonymous ~ftp>\n\
  User ftp\n\
  Group nogroup\n\
@@ -38,8 +37,7 @@ sudo mkdir /etc/proftpd/ssl
 #openssl req permet ici de créer une clé utilisant le protocol RSA et de le certifié en l'autosignant.
 sudo openssl req -x509 -days 30 -subj "/C=''/ST=''/L=''/CN=''/emailAddress=''" -newkey rsa:2048 -keyout /etc/proftpd/ssl/proftpd.key.pem -out /etc/proftpd/ssl/proftpd.cert.pem
  
-#chmod ici permet de donner les droits d'écriture et de lecture à tous les utilisateurs pour les fichiers
-#générés par la commande précédente
+#chmod ici permet de donner les droits d'écriture et de lecture à tous les utilisateurs pour les fichiers générés par la commande précédente
 sudo chmod 666 /etc/proftpd/ssl/proftpd.key.pem
 sudo chmod 666 /etc/proftpd/ssl/proftpd.cert.pem
 
@@ -57,8 +55,7 @@ echo -e "<IfModule mod_tls.c>\n\
 #cette commande permet de faire redémarrer le service proftpd
 sudo /etc/init.d/proftpd restart
 
-#chmod permet ici de donnée le droit de lecture à tous les utilisateurs.
-# Mais aussi pour le propriétaire des documents le droit d'écriture.
+#chmod permet ici de donnée le droit de lecture à tous les utilisateurs. Mais aussi pour le propriétaire des documents le droit d'écriture.
 sudo chmod 644 $conf
 sudo chmod 644 $tls
 
