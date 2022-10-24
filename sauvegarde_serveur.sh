@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #apt install permet d'installer le paquet lftp
-sudo apt install ftp
+sudo apt install lftp
 
 #cette commande permet d'afficher la date selon le format que l'on souhaite, ici : jj-mm-aaaa-HH-MM, et l'attribut à une variable précédemment nommé.
 d=$(date +%d-%m-%Y-%H-%M)
