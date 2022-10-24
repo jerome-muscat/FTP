@@ -50,7 +50,7 @@ echo -e "<IfModule mod_tls.c>\n\
  TLSRSACertificateKeyFile /etc/proftpd/ssl/proftpd.key.pem\n\
  TLSVerifyClient off\n\
  TLSRequired on\n\
-</IfModule>" >>$tls
+</IfModule>" >> $tls
 
 #cette commande permet de faire redémarrer le service proftpd
 sudo /etc/init.d/proftpd restart
