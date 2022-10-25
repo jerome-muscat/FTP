@@ -52,9 +52,6 @@ echo -e "<IfModule mod_tls.c>\n\
  TLSRequired on\n\
 </IfModule>" >> $tls
 
-#cette commande permet de faire redémarrer le service proftpd
-sudo /etc/init.d/proftpd restart
-
 #chmod permet ici de donnée le droit de lecture à tous les utilisateurs. Mais aussi, pour le propriétaire des documents, le droit d'écriture.
 sudo chmod 644 $conf
 sudo chmod 644 $tls
@@ -66,3 +63,6 @@ sudo useradd -m Pippin
 #ces commandes permettent de modifié les mots de passe d'un utilisateur.
 echo "Merry:kalimac" | sudo chpasswd
 echo "Merry:secondbreakfast" | sudo chpasswd
+
+#cette commande permet de faire redémarrer le service proftpd
+sudo /etc/init.d/proftpd restart
