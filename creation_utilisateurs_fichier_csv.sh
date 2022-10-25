@@ -21,3 +21,6 @@ cat /home/jerome/GitHub/FTP/fichier.csv | while read Id Prenom Nom Mdp Role
                 sudo usermod -aG sudo "$Prenom-$Nom"
                 fi
         done
+
+#cette commande permet de faire redémarrer le service proftpd
+sudo /etc/init.d/proftpd restart
